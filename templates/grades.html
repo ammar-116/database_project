@@ -2,39 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Enter Grades</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/grades.css') }}" />
+  <link rel="stylesheet" href="/static/css/grades.css" />
 </head>
 <body>
   <div class="grades-container">
     <h1>Enter Grades</h1>
-    <h2 class="class-name">Class: {{ class_info }}</h2>
+    <h2 class="class-name">Class: 10A</h2>
 
-    <form method="POST">
-      <div class="grades-controls">
-        <input type="text" placeholder="Search by student name..." id="searchInput" />
-        <button type="submit" class="save-btn">Save Grades</button>
-      </div>
+    <div class="grades-controls">
+      <input type="text" placeholder="Search by student name..." id="searchInput" />
+    </div>
 
-      <!-- Column Headings -->
-      <div class="grades-row header">
-        <div class="col col-id">Student ID</div>
-        <div class="col col-name">Name</div>
-        <div class="col col-marks">Marks</div>
-      </div>
+    <!-- Column Headings -->
+    <div class="grades-row header">
+      <div class="col col-id">Student ID</div>
+      <div class="col col-name">Name</div>
+      <div class="col col-marks">Marks</div>
+    </div>
 
-      <div class="grades-list" id="gradesList">
-        {% for student in students %}
-        <div class="grades-row" data-name="{{ student.Name }}">
-          <div class="col col-id">{{ student.P_ID }}</div>
-          <div class="col col-name">{{ student.Name }}</div>
-          <div class="col col-marks">
-            <input type="number" min="0" max="100" name="marks_{{ student.P_ID }}" value="{{ student.marks or '' }}" />
-          </div>
+    <!-- Student Rows -->
+    <div class="grades-list" id="gradesList">
+      <div class="grades-row" data-name="John Doe">
+        <div class="col col-id">001</div>
+        <div class="col col-name">John Doe</div>
+        <div class="col col-marks">
+          <input type="number" min="0" max="100" name="marks_1" />
         </div>
-        {% endfor %}
       </div>
-    </form>
+
+      <div class="grades-row" data-name="Jane Smith">
+        <div class="col col-id">002</div>
+        <div class="col col-name">Jane Smith</div>
+        <div class="col col-marks">
+          <input type="number" min="0" max="100" name="marks_2" />
+        </div>
+      </div>
+
+      <div class="grades-row" data-name="Alice Johnson">
+        <div class="col col-id">003</div>
+        <div class="col col-name">Alice Johnson</div>
+        <div class="col col-marks">
+          <input type="number" min="0" max="100" name="marks_3" />
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>

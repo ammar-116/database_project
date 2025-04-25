@@ -11,39 +11,44 @@
     <div class="teacher-info">
       <h2>Teacher Info</h2>
       <ul>
-        <li><strong>Name:</strong> {{ teacher.Name }}</li>
-        <li><strong>ID:</strong> {{ teacher.P_ID }}</li>
-        <li><strong>Subject:</strong> {{ teacher.Subject }}</li>
+        <li><strong>Name:</strong> Jane Doe</li>
+        <li><strong>ID:</strong> T1023</li>
+        <li><strong>Subject:</strong> Science</li>
       </ul>
-
       <a href="{{ url_for('teacher_timetable') }}">
-        <button class="btn timetable-btn">View Timetable</button>
-      </a>
+    <button class="btn timetable-btn">View Timetable</button>
+</a>
+
     </div>
 
     <div class="side-panel">
       <h3>Home Room</h3>
-      {% if homeroom %}
-        <p><strong>Class:</strong> {{ homeroom.grade }}-{{ homeroom.section }}</p>
-      {% else %}
-        <p><em>Not a class teacher</em></p>
-      {% endif %}
-
-      <a href="{{ url_for('teacher_attendance') }}">
-        <button class="btn">Attendance</button>
-      </a>
+      <p><strong>Class:</strong> 9-B</p>
+<a href="{{ url_for('attendance') }}">
+    <button class="btn">Attendance</button>
+</a>
+        <a href="{{ url_for('grades') }}">
+    <button class="btn">Grades</button>
+</a>
     </div>
 
     <div class="classes-section">
-      <h3>Classes You Teach</h3>
-      {% for cls in classes %}
-        <div class="class-card">
-          <h4>Class {{ cls.grade }}-{{ cls.section }}</h4>
-          <a href="{{ url_for('teacher_grades', grade=cls.grade, section=cls.section) }}">
-            <button class="btn">Grades</button>
-          </a>
-        </div>
-      {% endfor %}
+      <div class="class-card">
+        <h4>Class 6-A</h4>
+        <button class="btn">Grades</button>
+      </div>
+      <div class="class-card">
+        <h4>Class 7-B</h4>
+        <button class="btn">Grades</button>
+      </div>
+      <div class="class-card">
+        <h4>Class 8-C</h4>
+        <button class="btn">Grades</button>
+      </div>
+      <div class="class-card">
+        <h4>Class 9-A</h4>
+        <button class="btn">Grades</button>
+      </div>
     </div>
 
   </div>
