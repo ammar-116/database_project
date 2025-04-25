@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 20px;
+}
+
+.grades-container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.class-name {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.grades-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 60%;
+}
+
+.grades-row {
+  display: flex;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.grades-row.header {
+  background-color: #e0e0e0;
+  font-weight: bold;
+  border-bottom: 2px solid #bbb;
+}
+
+.col {
+  flex: 1;
+}
+
+.col-marks input {
+  width: 100%;
+  padding: 6px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student_dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <!-- Student Info Panel -->
+        <div class="student-info">
+            <h2>Student Info</h2>
+            <ul>
+                <li><strong>Name:</strong> {{ student.Name }}</li>
+                <li><strong>ID:</strong> {{ student.P_ID }}</li>
+                <li><strong>Gender:</strong> {{ student.Gender }}</li>
+                <li><strong>Attendance:</strong> {{ student.Attendance }}%</li>
+                <li><strong>Class:</strong> {{ student.grade }}-{{ student.section }}</li>
+                <li><strong>Class Teacher:</strong> {{ student.teacher_name or 'N/A' }}</li>
+            </ul>
+        </div>
+
+       <!-- Side Panel -->
+        <div class="side-panel">
+            <h3>Timetable</h3>
+                <p>View weekly schedule</p>
+    <a href="{{ url_for('student_timetable') }}">
+        <button class="btn timetable-btn">View Timetable</button>
+    </a>
+    <hr>
+    <h3>Book Issuance Info</h3>
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books issued.</p>
+    {% endif %}
+</div>
+
+
+        <!-- Grades Grid -->
+        <div class="grades-grid">
+            {% for grade in grades %}
+            <div class="subject-box">
+                <h4>{{ grade.subject }}</h4>
+                <p>Marks: {{ grade.marks }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Data</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/class_list.css') }}">
+</head>
+<body>
+  <div class="class-container">
+    <h2>Class Data</h2>
+    <div class="grade-wrapper">
+      <div class="grade-card">
+        <div class="section-buttons">
+<a href="{{ url_for('student_list', grade='6', section='A') }}">
+  <button>Section A</button>
+</a>
+          <button>Section B</button>
+          <button>Section C</button>
+        </div>
+        <p class="grade-label">6<sup>th</sup> Grade</p>
+      </div>
+      <div class="grade-card">
+        <div class="section-buttons">
+          <button>Section A</button>
+          <button>Section B</button>
+          <button>Section C</button>
+        </div>
+        <p class="grade-label">7<sup>th</sup> Grade</p>
+      </div>
+      <div class="grade-card">
+        <div class="section-buttons">
+          <button>Section A</button>
+          <button>Section B</button>
+          <button>Section C</button>
+        </div>
+        <p class="grade-label">8<sup>th</sup> Grade</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

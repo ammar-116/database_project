@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 20px;
+}
+
+.attendance-container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.attendance-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.filter-buttons button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #005fa3;
+}
+
+/* Shared row layout */
+.attendance-row {
+  display: flex;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.attendance-row.header {
+  background-color: #e0e0e0;
+  font-weight: bold;
+  border-bottom: 2px solid #bbb;
+}
+
+.col {
+  flex: 1;
+}
+
+.col-status {
+  display: flex;
+  justify-content: center;
+}
+
+.attendance-row input[type="checkbox"] {
+  transform: scale(1.2);
+}

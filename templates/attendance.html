@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance</title>
+  <link rel="stylesheet" href="/static/css/attendance.css" />
+</head>
+<body>
+  <div class="attendance-container">
+    <h1>Class Attendance</h1>
+
+    <div class="attendance-controls">
+      <input type="text" placeholder="Search by student name..." id="searchInput" />
+      <div class="filter-buttons">
+        <button onclick="filterStudents('all')">All</button>
+        <button onclick="filterStudents('present')">Present</button>
+        <button onclick="filterStudents('absent')">Absent</button>
+      </div>
+    </div>
+
+    <!-- Column Headings -->
+    <div class="attendance-row header">
+      <div class="col col-id">Student ID</div>
+      <div class="col col-name">Name</div>
+      <div class="col col-status">Attendance</div>
+    </div>
+
+    <!-- Student Rows -->
+    <div class="attendance-list" id="attendanceList">
+      <div class="attendance-row" data-name="John Doe">
+        <div class="col col-id">001</div>
+        <div class="col col-name">John Doe</div>
+        <div class="col col-status">
+          <input type="checkbox" name="attendance_1" />
+        </div>
+      </div>
+
+      <div class="attendance-row" data-name="Jane Smith">
+        <div class="col col-id">002</div>
+        <div class="col col-name">Jane Smith</div>
+        <div class="col col-status">
+          <input type="checkbox" name="attendance_2" />
+        </div>
+      </div>
+
+      <div class="attendance-row" data-name="Alice Johnson">
+        <div class="col col-id">003</div>
+        <div class="col col-name">Alice Johnson</div>
+        <div class="col col-status">
+          <input type="checkbox" name="attendance_3" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const rows = document.querySelectorAll(".attendance-row:not(.header)");
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.toLowerCase();
+      rows.forEach(row => {
+        const name = row.getAttribute("data-name").toLowerCase();
+        row.style.display = name.includes(query) ? "flex" : "none";
+      });
+    });
+
+    function filterStudents(type) {
+      rows.forEach(row => {
+        const checkbox = row.querySelector("input[type='checkbox']");
+        if (type === "all") {
+          row.style.display = "flex";
+        } else if (type === "present") {
+          row.style.display = checkbox.checked ? "flex" : "none";
+        } else if (type === "absent") {
+          row.style.display = !checkbox.checked ? "flex" : "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

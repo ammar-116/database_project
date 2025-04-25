@@ -1,0 +1,61 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #008ca0;
+  margin: 0;
+  padding: 30px;
+}
+
+.class-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.class-container h2 {
+  margin-bottom: 40px;
+  font-size: 28px;
+}
+
+.grade-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.grade-card {
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  padding: 20px;
+  width: 160px;
+}
+
+.section-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.section-buttons button {
+  background-color: #78909C;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.section-buttons button:hover {
+  background-color: #607D8B;
+}
+
+.grade-label {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}

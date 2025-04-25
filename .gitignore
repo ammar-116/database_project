@@ -1,0 +1,19 @@
+# Ignore virtual environments
+venv/
+.env/
+.venv/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+# PyCharm settings
+.idea/
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# OS junk
+.DS_Store
+Thumbs.db

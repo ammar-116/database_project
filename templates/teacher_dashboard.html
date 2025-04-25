@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher_dashboard.css') }}">
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <div class="teacher-info">
+      <h2>Teacher Info</h2>
+      <ul>
+        <li><strong>Name:</strong> {{ teacher.Name }}</li>
+        <li><strong>ID:</strong> {{ teacher.P_ID }}</li>
+        <li><strong>Subject:</strong> {{ teacher.Subject }}</li>
+      </ul>
+
+      <a href="{{ url_for('teacher_timetable') }}">
+        <button class="btn timetable-btn">View Timetable</button>
+      </a>
+    </div>
+
+    <div class="side-panel">
+      <h3>Home Room</h3>
+      {% if homeroom %}
+        <p><strong>Class:</strong> {{ homeroom.grade }}-{{ homeroom.section }}</p>
+      {% else %}
+        <p><em>Not a class teacher</em></p>
+      {% endif %}
+
+      <a href="{{ url_for('teacher_attendance') }}">
+        <button class="btn">Attendance</button>
+      </a>
+    </div>
+
+    <div class="classes-section">
+      <h3>Classes You Teach</h3>
+      {% for cls in classes %}
+        <div class="class-card">
+          <h4>Class {{ cls.grade }}-{{ cls.section }}</h4>
+          <a href="{{ url_for('teacher_grades', grade=cls.grade, section=cls.section) }}">
+            <button class="btn">Grades</button>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</body>
+</html>

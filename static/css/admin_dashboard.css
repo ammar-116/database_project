@@ -1,0 +1,90 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-areas:
+    "info teachers books"
+    "actions classes books"
+    "actions . .";
+  grid-template-columns: 1fr 2fr 1.5fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.admin-info {
+  grid-area: info;
+  background: #e0e0e0;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.action-buttons {
+  grid-area: actions;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  flex: 1;
+  min-width: 120px;
+}
+
+.action-buttons .btn {
+  padding: 10px 16px;
+  background-color: #4b0082;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.action-buttons .btn.delete {
+  background-color: #cc0000;
+}
+
+.card {
+  background: #dedede;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.teachers { grid-area: teachers; }
+.classes { grid-area: classes; }
+.books { grid-area: books; }
+
+.card .btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #4b0082;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}

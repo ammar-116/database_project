@@ -1,0 +1,98 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-areas:
+        "info side"
+        "grades grades";
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.student-info {
+    grid-area: info;
+    background: #e0e0e0;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.student-info h2 {
+    border-bottom: 2px solid purple;
+    padding-bottom: 10px;
+}
+
+.student-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.student-info li {
+    margin: 8px 0;
+}
+
+.side-panel {
+    grid-area: side;
+    background: #d6d6d6;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.grades-grid {
+    grid-area: grades;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+}
+
+.subject-box {
+    flex: 0 0 auto;
+    min-width: 200px;
+    background: #dedede;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.grades-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.grades-grid::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 10px;
+}
+
+.subject-box:hover {
+    transform: scale(1.05);
+}
+
+.subject-box:hover {
+    transform: scale(1.05);
+}
+
+.side-panel .btn.timetable-btn {
+    margin: 10px 0;
+    padding: 8px 12px;
+    background-color: #4b0082;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.side-panel .btn.timetable-btn:hover {
+    background-color: #360060;
+}
+

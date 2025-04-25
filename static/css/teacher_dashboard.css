@@ -1,0 +1,107 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-areas:
+    "info side"
+    "classes classes";
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.teacher-info {
+  grid-area: info;
+  background: #e0e0e0;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.teacher-info h2 {
+  border-bottom: 2px solid #4b0082;
+  padding-bottom: 10px;
+}
+
+.teacher-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.teacher-info li {
+  margin: 8px 0;
+}
+
+.teacher-info .btn.timetable-btn {
+  margin-top: 15px;
+  padding: 10px 14px;
+  background-color: #4b0082;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.teacher-info .btn.timetable-btn:hover {
+  background-color: #360060;
+}
+
+.side-panel {
+  grid-area: side;
+  background: #d6d6d6;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.side-panel h3 {
+  margin-top: 0;
+}
+
+.side-panel .btn {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background-color: #4b0082;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.classes-section {
+  grid-area: classes;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+
+.class-card {
+  background: #dedede;
+  border-radius: 20px;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.class-card:hover {
+  transform: scale(1.05);
+}
+
+.class-card .btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background-color: #4b0082;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enter Grades</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/grades.css') }}" />
+</head>
+<body>
+  <div class="grades-container">
+    <h1>Enter Grades</h1>
+    <h2 class="class-name">Class: {{ class_info }}</h2>
+
+    <form method="POST">
+      <div class="grades-controls">
+        <input type="text" placeholder="Search by student name..." id="searchInput" />
+        <button type="submit" class="save-btn">Save Grades</button>
+      </div>
+
+      <!-- Column Headings -->
+      <div class="grades-row header">
+        <div class="col col-id">Student ID</div>
+        <div class="col col-name">Name</div>
+        <div class="col col-marks">Marks</div>
+      </div>
+
+      <div class="grades-list" id="gradesList">
+        {% for student in students %}
+        <div class="grades-row" data-name="{{ student.Name }}">
+          <div class="col col-id">{{ student.P_ID }}</div>
+          <div class="col col-name">{{ student.Name }}</div>
+          <div class="col col-marks">
+            <input type="number" min="0" max="100" name="marks_{{ student.P_ID }}" value="{{ student.marks or '' }}" />
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const rows = document.querySelectorAll(".grades-row:not(.header)");
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.toLowerCase();
+      rows.forEach(row => {
+        const name = row.getAttribute("data-name").toLowerCase();
+        row.style.display = name.includes(query) ? "flex" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
