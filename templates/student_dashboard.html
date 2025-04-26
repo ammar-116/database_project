@@ -10,51 +10,38 @@
         <div class="student-info">
             <h2>Student Info</h2>
             <ul>
-                <li><strong>Name:</strong> John Doe</li>
-                <li><strong>ID:</strong> 12345</li>
-                <li><strong>Gender:</strong> Male</li>
-                <li><strong>Attendance:</strong> 95%</li>
-                <li><strong>Class:</strong> 10-A</li>
-                <li><strong>Class Teacher:</strong> Mrs. Smith</li>
+                <li><strong>Name:</strong> {{ student.Name }}</li>
+                <li><strong>ID:</strong> {{ student.P_ID }}</li>
+                <li><strong>Gender:</strong> {{ student.Gender }}</li>
+                <li><strong>Attendance:</strong> {{ student.Attendance }}%</li>
+                <li><strong>Class:</strong> {{ student.grade }}-{{ student.section }}</li>
+                <li><strong>Class Teacher:</strong> {{ student.teacher_name }}</li>
             </ul>
         </div>
 
         <div class="side-panel">
             <h3>Timetable</h3>
             <p>View weekly schedule</p>
-           <a href="{{ url_for('student_timetable') }}">
-    <button class="btn timetable-btn">View Timetable</button>
-</a>
+            <a href="{{ url_for('student_timetable') }}">
+                <button class="btn timetable-btn">View Timetable</button>
+            </a>
             <hr>
             <h3>Book Issuance Info</h3>
-            <p>Issued: 3 Books</p>
+            {% if book %}
+                <p>Issued Book: {{ book.B_title }}</p>
+                <p>Date Issued: {{ book.date_issued }}</p>
+            {% else %}
+                <p>No book issued.</p>
+            {% endif %}
         </div>
 
         <div class="grades-grid">
+            {% for subject in grades %}
             <div class="subject-box">
-                <h4>Math</h4>
-                <p>Grade: A</p>
+                <h4>{{ subject.s_title }}</h4>
+                <p>Marks: {{ subject.marks }}</p>
             </div>
-            <div class="subject-box">
-                <h4>Science</h4>
-                <p>Grade: B+</p>
-            </div>
-            <div class="subject-box">
-                <h4>English</h4>
-                <p>Grade: A-</p>
-            </div>
-            <div class="subject-box">
-                <h4>History</h4>
-                <p>Grade: B</p>
-            </div>
-            <div class="subject-box">
-                <h4>Urdu</h4>
-                <p>Grade: B</p>
-            </div>
-            <div class="subject-box">
-                <h4>SST</h4>
-                <p>Grade: B</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </body>

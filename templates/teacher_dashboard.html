@@ -8,47 +8,39 @@
 <body>
   <div class="dashboard-container">
 
+    <!-- Teacher Info Panel -->
     <div class="teacher-info">
       <h2>Teacher Info</h2>
       <ul>
-        <li><strong>Name:</strong> Jane Doe</li>
-        <li><strong>ID:</strong> T1023</li>
-        <li><strong>Subject:</strong> Science</li>
+        <li><strong>Name:</strong> {{ teacher.Name }}</li>
+        <li><strong>ID:</strong> {{ teacher.P_ID }}</li>
       </ul>
       <a href="{{ url_for('teacher_timetable') }}">
-    <button class="btn timetable-btn">View Timetable</button>
-</a>
-
+        <button class="btn timetable-btn">View Timetable</button>
+      </a>
     </div>
 
+    <!-- Side Panel for Homeroom and Controls -->
     <div class="side-panel">
       <h3>Home Room</h3>
-      <p><strong>Class:</strong> 9-B</p>
-<a href="{{ url_for('attendance') }}">
-    <button class="btn">Attendance</button>
-</a>
-        <a href="{{ url_for('grades') }}">
-    <button class="btn">Grades</button>
-</a>
+      <p><strong>Class:</strong> {{ homeroom }}</p>
+      <a href="{{ url_for('attendance') }}">
+        <button class="btn">Attendance</button>
+      </a>
+      <a href="{{ url_for('grades') }}">
+        <button class="btn">Grades</button>
+      </a>
     </div>
 
+    <!-- Classes Taught Section -->
     <div class="classes-section">
+      {% for c in classes %}
       <div class="class-card">
-        <h4>Class 6-A</h4>
+        <h4>Class {{ c.grade }}-{{ c.section }}</h4>
+        <p><strong>Subject:</strong> {{ c.s_title }}</p>
         <button class="btn">Grades</button>
       </div>
-      <div class="class-card">
-        <h4>Class 7-B</h4>
-        <button class="btn">Grades</button>
-      </div>
-      <div class="class-card">
-        <h4>Class 8-C</h4>
-        <button class="btn">Grades</button>
-      </div>
-      <div class="class-card">
-        <h4>Class 9-A</h4>
-        <button class="btn">Grades</button>
-      </div>
+      {% endfor %}
     </div>
 
   </div>
