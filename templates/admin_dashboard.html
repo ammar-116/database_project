@@ -13,74 +13,54 @@
       <p><strong>Name:</strong> Admin</p>
     </div>
 
-    <div class="action-buttons">
-      <div class="form-group">
-        <select id="user-role">
-          <option value="student">Add Student</option>
-          <option value="teacher">Add Teacher</option>
-        </select>
-
-        <input type="text" placeholder="Full Name">
-
-        <!-- Student fields -->
-        <input type="text" placeholder="Username" class="student-only">
-        <input type="password" placeholder="Password" class="student-only">
-        <input type="text" placeholder="Class" class="student-only">
-
-        <!-- Teacher fields -->
-        <input type="text" placeholder="Subject" class="teacher-only" style="display:none">
-        <input type="text" placeholder="Class" class="teacher-only" style="display:none">
-        <select class="teacher-only" style="display:none">
-          <option value="">Class Teacher?</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <input type="email" placeholder="Email" class="teacher-only" style="display:none">
-        <input type="password" placeholder="Password" class="teacher-only" style="display:none">
-
-        <button class="btn">Create User</button>
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Enter ID to delete user">
-        <button class="btn delete">Delete User</button>
-      </div>
-    </div>
-
     <div class="card teachers">
       <h4>Teachers</h4>
       <p>View all current teachers and their subjects.</p>
-<a href="{{ url_for('teacher_list') }}">
-    <button class="btn">View List</button>
-  </a>
+      <a href="{{ url_for('teacher_list') }}">
+        <button class="btn">View List</button>
+      </a>
     </div>
 
     <div class="card classes">
       <h4>Classes</h4>
       <p>Browse all classes. Click a class to view enrolled students.</p>
- <a href="{{ url_for('class_list') }}">
-    <button class="btn">Open Classes</button>
-  </a>    </div>
+      <a href="{{ url_for('class_list') }}">
+        <button class="btn">Open Classes</button>
+      </a>
+    </div>
 
     <div class="card books">
       <h4>Book Stuff</h4>
       <p>Manage library or book-related data.</p>
- <a href="{{ url_for('books_inventory') }}">
-    <button class="btn">Manage Books</button>
-  </a>    </div>
+      <a href="{{ url_for('books_inventory') }}">
+        <button class="btn">Manage Books</button>
+      </a>
+    </div>
 
-    <script>
-      const roleSelect = document.getElementById('user-role');
-      roleSelect.addEventListener('change', () => {
-        const isTeacher = roleSelect.value === 'teacher';
-        document.querySelectorAll('.teacher-only').forEach(el => {
-          el.style.display = isTeacher ? 'inline-block' : 'none';
-        });
-        document.querySelectorAll('.student-only').forEach(el => {
-          el.style.display = isTeacher ? 'none' : 'inline-block';
-        });
-      });
-    </script>
+    <div class="card manage-students">
+      <h4>Manage Students</h4>
+      <p>View, add, or update student information.</p>
+      <a href="{{ url_for('manage_students') }}">
+        <button class="btn">Manage Students</button>
+      </a>
+    </div>
+
+    <div class="card manage-teachers">
+      <h4>Manage Teachers</h4>
+      <p>View, add, or update teacher information.</p>
+      <a href="{{ url_for('manage_teachers') }}">
+        <button class="btn">Manage Teachers</button>
+      </a>
+    </div>
+
+    <div class="card manage-timetables">
+      <h4>Manage Timetables</h4>
+      <p>Create or modify class timetables.</p>
+      <a href="#">
+        <button class="btn">Manage Timetables</button>
+      </a>
+    </div>
+
   </div>
 </body>
 </html>

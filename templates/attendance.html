@@ -10,48 +10,44 @@
   <div class="attendance-container">
     <h1>Class Attendance</h1>
 
-    <div class="attendance-controls">
-      <input type="text" placeholder="Search by student name..." id="searchInput" />
-      <div class="filter-buttons">
-        <button onclick="filterStudents('all')">All</button>
-        <button onclick="filterStudents('present')">Present</button>
-        <button onclick="filterStudents('absent')">Absent</button>
-      </div>
-    </div>
-
-    <!-- Column Headings -->
-    <div class="attendance-row header">
-      <div class="col col-id">Student ID</div>
-      <div class="col col-name">Name</div>
-      <div class="col col-status">Attendance</div>
-    </div>
-
-    <!-- Student Rows -->
-    <div class="attendance-list" id="attendanceList">
-      <div class="attendance-row" data-name="John Doe">
-        <div class="col col-id">001</div>
-        <div class="col col-name">John Doe</div>
-        <div class="col col-status">
-          <input type="checkbox" name="attendance_1" />
+    <form method="POST" action="/teacher/submit_attendance">
+      <div class="attendance-controls">
+        <input type="text" placeholder="Search by student name..." id="searchInput" />
+        <div class="filter-buttons">
+          <button type="button" onclick="filterStudents('all')">All</button>
+          <button type="button" onclick="filterStudents('present')">Present</button>
+          <button type="button" onclick="filterStudents('absent')">Absent</button>
         </div>
       </div>
 
-      <div class="attendance-row" data-name="Jane Smith">
-        <div class="col col-id">002</div>
-        <div class="col col-name">Jane Smith</div>
-        <div class="col col-status">
-          <input type="checkbox" name="attendance_2" />
-        </div>
+      <!-- Column Headings -->
+      <div class="attendance-row header">
+        <div class="col col-id">Student ID</div>
+        <div class="col col-name">Name</div>
+        <div class="col col-checkbox">Present?</div>
+        <div class="col col-attendance">Attendance %</div>
       </div>
 
-      <div class="attendance-row" data-name="Alice Johnson">
-        <div class="col col-id">003</div>
-        <div class="col col-name">Alice Johnson</div>
-        <div class="col col-status">
-          <input type="checkbox" name="attendance_3" />
+      <!-- Student Rows -->
+      <div class="attendance-list" id="attendanceList">
+        {% for student in students %}
+        <div class="attendance-row" data-name="{{ student.Name }}">
+          <div class="col col-id">{{ student.student_id }}</div>
+          <div class="col col-name">{{ student.Name }}</div>
+          <div class="col col-checkbox">
+            <input type="checkbox" name="attendance_{{ student.student_id }}" />
+          </div>
+          <div class="col col-attendance">
+            {{ student.Attendance }}%
+          </div>
         </div>
+        {% endfor %}
       </div>
-    </div>
+
+      <div style="margin-top: 20px;">
+        <button type="submit" class="save-btn">Save Attendance</button>
+      </div>
+    </form>
   </div>
 
   <script>

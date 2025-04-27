@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Teachers</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/manage_teachers.css') }}">
+</head>
+<body>
+  <div class="manage-teachers-container">
+    <h2>Manage Teachers</h2>
+
+    <div class="form-section">
+      <h3>Add New Teacher</h3>
+      <form method="post" action="#">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="contact">Contact Information:</label>
+        <input type="text" id="contact" name="contact" required>
+
+        <label for="class_teacher">Is this Teacher a Class Teacher?</label>
+        <select id="class_teacher" name="class_teacher" required>
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+
+        <div id="class-details" style="display: none;">
+          <label for="class_grade">Class Grade:</label>
+          <input type="number" id="class_grade" name="class_grade" required>
+
+          <label for="section">Section:</label>
+          <input type="text" id="section" name="section" maxlength="1" required>
+        </div>
+
+        <button type="submit" class="btn">Add Teacher</button>
+      </form>
+    </div>
+
+    <div class="form-section">
+      <h3>Delete Teacher</h3>
+      <form method="post" action="#">
+        <label for="teacher_id">Teacher ID:</label>
+        <input type="number" id="teacher_id" name="teacher_id" required>
+
+        <button type="submit" class="btn delete">Delete Teacher</button>
+      </form>
+    </div>
+
+    <div class="back-link">
+      <a href="{{ url_for('admin_dashboard') }}">← Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    // Show/hide class details based on whether the teacher is a class teacher
+    document.getElementById('class_teacher').addEventListener('change', function() {
+      const classDetails = document.getElementById('class-details');
+      if (this.value === 'yes') {
+        classDetails.style.display = 'block';
+      } else {
+        classDetails.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

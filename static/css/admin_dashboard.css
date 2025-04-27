@@ -8,10 +8,10 @@ body {
 .dashboard-container {
   display: grid;
   grid-template-areas:
-    "info teachers books"
-    "actions classes books"
-    "actions . .";
-  grid-template-columns: 1fr 2fr 1.5fr;
+    "info info teachers"
+    "manage-students books classes"
+    "manage-teachers manage-timetables manage-timetables";
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   max-width: 1200px;
   margin: auto;
@@ -22,44 +22,6 @@ body {
   background: #e0e0e0;
   padding: 20px;
   border-radius: 15px;
-}
-
-.action-buttons {
-  grid-area: actions;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-
-.form-group input,
-.form-group select {
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  flex: 1;
-  min-width: 120px;
-}
-
-.action-buttons .btn {
-  padding: 10px 16px;
-  background-color: #4b0082;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.action-buttons .btn.delete {
-  background-color: #cc0000;
 }
 
 .card {
@@ -77,6 +39,9 @@ body {
 .teachers { grid-area: teachers; }
 .classes { grid-area: classes; }
 .books { grid-area: books; }
+.manage-students { grid-area: manage-students; }
+.manage-teachers { grid-area: manage-teachers; }
+.manage-timetables { grid-area: manage-timetables; }
 
 .card .btn {
   margin-top: 10px;
@@ -88,3 +53,12 @@ body {
   cursor: pointer;
   font-size: 15px;
 }
+
+.card .btn:hover {
+  background-color: #360060;
+}
+
+a {
+  text-decoration: none;
+}
+

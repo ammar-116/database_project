@@ -4,47 +4,59 @@
   <meta charset="UTF-8">
   <title>Timetable</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/student_timetable.css') }}">
+  <script>
+    function filterTimetable() {
+      const selectedDay = document.getElementById('daySelect').value;
+      const dayContainers = document.querySelectorAll('.day-container');
+
+      dayContainers.forEach(container => {
+        if (container.getAttribute('data-day') === selectedDay) {
+          container.style.display = 'block';
+        } else {
+          container.style.display = 'none';
+        }
+      });
+    }
+    window.onload = filterTimetable;
+  </script>
 </head>
 <body>
   <div class="timetable-wrapper">
-
     <div class="top-bar">
-      <div class="info-box top-name">Timetable for Class Name</div>
-      <div class="info-box top-date">Day Dropdown</div>
-    </div>
-
-    <div class="timetable-container">
-      <div class="timeline">
-        <div class="slot">
-          <div class="time">8 - 9 AM</div>
-          <div class="bar">Subject and Teacher </div>
-        </div>
-        <div class="slot">
-          <div class="time">9 - 10 AM</div>
-          <div class="bar">Subject and Teacher</div>
-        </div>
-        <div class="slot">
-          <div class="time">10 - 11 AM</div>
-          <div class="bar">Subject and Teacher</div>
-        </div>
-        <div class="slot">
-          <div class="time">11 - 12 PM</div>
-          <div class="bar">Break</div>
-        </div>
-        <div class="slot">
-          <div class="time">12 - 1 PM</div>
-          <div class="bar">Subject and Teacher</div>
-        </div>
-        <div class="slot">
-          <div class="time">1 - 2 PM</div>
-          <div class="bar">Subject and Teacher</div>
-        </div>
-        <div class="slot">
-          <div class="time">2 - 3 PM</div>
-          <div class="bar">Subject and Teacher</div>
-        </div>
+      <div class="info-box top-name">{{ class_name }}</div>
+      <div class="info-box top-date">
+        <select id="daySelect" onchange="filterTimetable()">
+          {% for day in days %}
+            <option value="{{ day }}">{{ day }}</option>
+          {% endfor %}
+        </select>
       </div>
     </div>
+
+  <div class="timetable-container">
+    {% for day in days %}
+      <div class="day-container" data-day="{{ day }}" style="display: none;">
+        <h2>{{ day }}</h2>
+        <div class="timeline">
+          {% for slot in timeslots %}
+            <div class="slot">
+              <div class="time">{{ slot }}</div>
+              <div class="bar">
+                {% if slot == '11:00 - 12:00' %}
+                  Break
+                {% elif timetable.get(day) and timetable[day].get(slot) %}
+                  {{ timetable[day][slot].subject_name }} - {{ timetable[day][slot].teacher_name }}
+                {% else %}
+                  Nothing Scheduled
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
 
   </div>
 </body>

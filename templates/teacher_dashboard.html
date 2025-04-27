@@ -35,7 +35,9 @@
       <div class="class-card">
         <h4>Class {{ c.grade }}-{{ c.section }}</h4>
         <p><strong>Subject:</strong> {{ c.s_title }}</p>
-        <button class="btn">Grades</button>
+        <a href="{{ url_for('grades', class_id=c.class_id, subject_id=c.subject_id) }}">
+          <button class="btn">Grades</button>
+        </a>
       </div>
       {% endfor %}
     </div>

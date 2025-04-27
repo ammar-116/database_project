@@ -9,40 +9,36 @@
   <div class="timetable-wrapper">
 
     <div class="top-bar">
-      <div class="info-box top-name">Timetable for Teacher Name</div>
-      <div class="info-box top-date">Day Drop Down</div>
+      <div class="info-box top-name">Timetable for {{ teacher_name }}</div>
+
+      <div class="info-box top-date">
+        <form method="GET">
+          <select name="day" onchange="this.form.submit()">
+            {% for d in days %}
+              <option value="{{ d }}" {% if request.args.get('day') == d %}selected{% endif %}>{{ d }}</option>
+            {% endfor %}
+          </select>
+        </form>
+      </div>
     </div>
 
     <div class="timetable-container">
       <div class="timeline">
-        <div class="slot">
-          <div class="time">8 - 9 AM</div>
-          <div class="bar">Class and Subject</div>
-        </div>
-        <div class="slot">
-          <div class="time">9 - 10 AM</div>
-          <div class="bar">Class and Subject</div>
-        </div>
-        <div class="slot">
-          <div class="time">10 - 11 AM</div>
-          <div class="bar">Class and Subject</div>
-        </div>
-        <div class="slot">
-          <div class="time">11 - 12 PM</div>
-          <div class="bar">Break</div>
-        </div>
-        <div class="slot">
-          <div class="time">12 - 1 PM</div>
-          <div class="bar">Class and Subject</div>
-        </div>
-        <div class="slot">
-          <div class="time">1 - 2 PM</div>
-          <div class="bar">Class and Subject</div>
-        </div>
-        <div class="slot">
-          <div class="time">2 - 3 PM</div>
-          <div class="bar">Class and Subject</div>
-        </div>
+        {% set selected_day = request.args.get('day', days[0]) %}
+        {% for timeslot in timeslots %}
+          <div class="slot">
+            <div class="time">{{ timeslot }}</div>
+              <div class="bar">
+                {% if timeslot == '11:00 - 12:00' %}
+                  Break
+                {% elif timetable[selected_day] and timetable[selected_day].get(timeslot) %}
+                  {{ timetable[selected_day][timeslot]['class'] }} - {{ timetable[selected_day][timeslot]['subject'] }}
+                {% else %}
+                  Free Slot
+                {% endif %}
+              </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
 
