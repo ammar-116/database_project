@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #008ca0;
+  background-color: #FFF4E9;
   margin: 0;
   padding: 30px;
 }
@@ -12,50 +12,84 @@ body {
   max-width: 1000px;
   margin: auto;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
 }
 
 .class-container h2 {
   margin-bottom: 40px;
   font-size: 28px;
+  color: #333;
+  border-bottom: 2px solid #16E0BD;
+  padding-bottom: 10px;
 }
 
 .grade-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
 }
 
 .grade-card {
-  background-color: #e0e0e0;
+  background-color: #ffffff;
   border-radius: 20px;
   padding: 20px;
-  width: 160px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 2px solid #FF7F50;
+  transition: transform 0.2s;
+}
+
+.grade-card:hover {
+  transform: scale(1.05);
+  border-color: #16E0BD;
 }
 
 .section-buttons {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 10px;
 }
 
 .section-buttons button {
-  background-color: #78909C;
+  background-color: #FF7F50;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 10px;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .section-buttons button:hover {
-  background-color: #607D8B;
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
 .grade-label {
   margin-top: 15px;
   font-weight: bold;
   font-size: 16px;
+  color: #333;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
 }

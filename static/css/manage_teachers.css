@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #FFF4E9;
   margin: 0;
   padding: 20px;
 }
@@ -8,13 +8,17 @@ body {
 .manage-teachers-container {
   max-width: 600px;
   margin: auto;
-  background: #e0e0e0;
+  background: #ffffff;
   padding: 30px;
   border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
 }
 
 h2, h3 {
   text-align: center;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 .form-section {
@@ -26,46 +30,47 @@ label {
   margin-top: 15px;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #444;
 }
 
 input[type="text"],
 input[type="number"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
+input[type="password"],
 select {
   width: 100%;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .btn {
   margin-top: 20px;
   padding: 10px 15px;
-  background-color: #4b0082;
+  background-color: #FF7F50;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   width: 100%;
   font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .btn:hover {
-  background-color: #360060;
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
 .btn.delete {
-  background-color: #b00020;
+  background-color: #f44336;
 }
 
 .btn.delete:hover {
-  background-color: #800015;
+  background-color: #d32f2f;
 }
 
 .back-link {
@@ -75,6 +80,12 @@ select {
 
 .back-link a {
   text-decoration: none;
-  color: #4b0082;
+  color: #FF7F50;
   font-weight: bold;
+  font-size: 16px;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
 }

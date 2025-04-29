@@ -1,73 +1,98 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #FFF4E9;
   margin: 0;
   padding: 20px;
 }
 
 .manage-students-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
-  background: #e0e0e0;
+  background-color: #ffffff;
   padding: 30px;
-  border-radius: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
 }
 
-h2, h3 {
+h2 {
   text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #16E0BD;
+  padding-bottom: 10px;
 }
 
 .form-section {
-  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+h3 {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 label {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
   font-weight: bold;
+  color: #333;
 }
 
 input[type="text"],
+input[type="password"],
 input[type="number"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
+select {
+  padding: 10px;
+  font-size: 1rem;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .btn {
-  margin-top: 20px;
-  padding: 10px 15px;
-  background-color: #4b0082;
+  padding: 10px 16px;
+  background-color: #FF7F50;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  width: 100%;
-  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
+  font-size: 1rem;
 }
 
 .btn:hover {
-  background-color: #360060;
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
 .btn.delete {
-  background-color: #b00020;
+  background-color: #f44336;
 }
 
 .btn.delete:hover {
-  background-color: #800015;
+  background-color: #d32f2f;
 }
 
 .back-link {
-  margin-top: 30px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .back-link a {
   text-decoration: none;
-  color: #4b0082;
+  font-size: 16px;
+  color: #FF7F50;
   font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
 }

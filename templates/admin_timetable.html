@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timetable Assignment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_timetable.css') }}">
+</head>
+<body>
+
+<div class="page-container">
+
+    <h1 class="page-title">Timetable Assignment</h1>
+
+    <form id="timetableForm" method="GET" action="{{ url_for('admin_timetable') }}" class="selection-form">
+        <select id="daySelect" name="day" required class="selection-dropdown">
+            <option disabled {% if not selected_day %}selected{% endif %}>Select Day</option>
+            {% for d in days %}
+                <option value="{{ d }}" {% if d == selected_day %}selected{% endif %}>{{ d }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="classSelect" name="class_id" required class="selection-dropdown">
+            <option disabled {% if not selected_class_id %}selected{% endif %}>Select Class</option>
+            {% for c in classes %}
+                <option value="{{ c.Class_id }}" {% if c.Class_id|string == selected_class_id|string %}selected{% endif %}>
+                    {{ c.grade }}{{ c.section }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    {% if selected_day and selected_class_id %}
+    <div class="timetable-container">
+        {% for t in timeslots %}
+        <div class="row {% if t == '11:00 - 12:00' %}break{% endif %}">
+            <div class="time">{{ t }}</div>
+
+            {% if t == '11:00 - 12:00' %}
+                <div class="break-text">Break</div>
+            {% else %}
+                {% if existing_slots[t] %}
+                    <div class="assigned-info">
+                        <b>{{ existing_slots[t].subject_title }}</b> by <b>{{ existing_slots[t].teacher_name }}</b>
+                    </div>
+
+                    <form method="POST" action="{{ url_for('clear_slot') }}" class="inline-form">
+                        <input type="hidden" name="class_id" value="{{ selected_class_id }}">
+                        <input type="hidden" name="day" value="{{ selected_day }}">
+                        <input type="hidden" name="timeslot" value="{{ t }}">
+                        <button type="submit" class="clear-button">Clear</button>
+                    </form>
+                {% else %}
+                    <form method="POST" action="{{ url_for('create_slot') }}" class="slot-form">
+                        <input type="hidden" name="class_id" value="{{ selected_class_id }}">
+                        <input type="hidden" name="day" value="{{ selected_day }}">
+                        <input type="hidden" name="timeslot" value="{{ t }}">
+
+                        <select name="subject_id" required class="slot-dropdown">
+                            <option disabled selected>Select Subject</option>
+                            {% for sub in subjects %}
+                                <option value="{{ sub.s_id }}">{{ sub.s_title }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <select name="teacher_id" required class="slot-dropdown">
+                            <option disabled selected>Select Teacher</option>
+                            {% for teacher in free_teachers[(selected_day, t)] %}
+                                <option value="{{ teacher.P_ID }}">{{ teacher.Name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <button type="submit" class="create-button">Create</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+ <div class="back-link">
+      <a href="{{ url_for('admin_dashboard') }}">← Back to Dashboard</a>
+    </div>
+</div>
+
+<script>
+document.getElementById('daySelect').addEventListener('change', function() {
+    document.getElementById('timetableForm').submit();
+});
+document.getElementById('classSelect').addEventListener('change', function() {
+    document.getElementById('timetableForm').submit();
+});
+</script>
+
+</body>
+</html>

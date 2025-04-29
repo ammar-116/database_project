@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="student-list-container">
-    <h2>Class 8A - Student List</h2>
+<h2>Class {{ grade }}{{ section }} - Student List</h2>
 
     <div class="search-bar">
       <input type="text" placeholder="Search by student name">
@@ -22,27 +22,25 @@
           <th>Average Marks</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1001</td>
-          <td>Ali Raza</td>
-          <td>95%</td>
-          <td>88</td>
-        </tr>
-        <tr>
-          <td>1002</td>
-          <td>Maria Khan</td>
-          <td>87%</td>
-          <td>76</td>
-        </tr>
-        <tr>
-          <td>1003</td>
-          <td>Ahmed Siddiqui</td>
-          <td>90%</td>
-          <td>82</td>
-        </tr>
-      </tbody>
+<tbody>
+  {% for student in students %}
+    <tr>
+      <td>{{ student.student_id }}</td>
+      <td>{{ student.Name }}</td>
+      <td>{{ student.Attendance }}%</td>
+      <td>{{ student.average_marks or 'N/A' }}</td>
+    </tr>
+  {% else %}
+    <tr>
+      <td colspan="4">No students found for this class-section.</td>
+    </tr>
+  {% endfor %}
+</tbody>
+
     </table>
+     <div class="back-link">
+      <a href="{{ url_for('admin_dashboard') }}">← Back to Dashboard</a>
+    </div>
   </div>
 </body>
 </html>

@@ -9,89 +9,73 @@
   <div class="inventory-container">
     <h2>Books Inventory</h2>
 
-    <div class="controls">
-      <input type="text" placeholder="Search by title or ID..." class="search-input">
+  <div class="controls">
+    <form method="POST" class="form-group" style="display: inline;">
+      <input type="hidden" name="action" value="add">
+      <input type="text" name="title" placeholder="Title" required>
+      <input type="text" name="author" placeholder="Author" required>
+      <button class="btn add" type="submit">Add Book</button>
+    </form>
 
-      <div class="form-group">
-        <input type="text" placeholder="Book ID" id="add-book-id">
-        <input type="text" placeholder="Title" id="add-title">
-        <input type="text" placeholder="Author" id="add-author">
-        <button class="btn add" onclick="addBook()">Add Book</button>
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Book ID" id="remove-book-id">
-        <button class="btn delete" onclick="removeBook()">Remove Book</button>
-      </div>
-    </div>
-
-    <table class="books-table">
-      <thead>
-        <tr>
-          <th>Book ID</th>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Issued To</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="books-tbody">
-        <tr>
-          <td>BK001</td>
-          <td>Mathematics Essentials</td>
-          <td>Jane Doe</td>
-          <td contenteditable="true">Student A</td>
-          <td contenteditable="true" class="status issued">Issued</td>
-        </tr>
-        <tr>
-          <td>BK002</td>
-          <td>History of Time</td>
-          <td>John Smith</td>
-          <td contenteditable="true">—</td>
-          <td contenteditable="true" class="status available">Available</td>
-        </tr>
-      </tbody>
-    </table>
+    <form method="POST" class="form-group" style="display: inline;">
+      <input type="hidden" name="action" value="delete">
+      <input type="number" name="book_id" placeholder="Book ID" required>
+      <button class="btn delete" type="submit">Remove Book</button>
+    </form>
   </div>
 
-  <script>
-    function addBook() {
-      const id = document.getElementById("add-book-id").value;
-      const title = document.getElementById("add-title").value;
-      const author = document.getElementById("add-author").value;
-      if (!id || !title || !author) return;
+    <table class="books-table">
+<thead>
+  <tr>
+    <th>Book ID</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Issued To</th>
+    <th>Status</th>
+  </tr>
+</thead>
 
-      const table = document.getElementById("books-tbody");
-      const row = document.createElement("tr");
+<tbody id="books-tbody">
+  {% for book in books %}
+    <tr>
+      <td>{{ book.B_id }}</td>
+      <td>{{ book.B_title }}</td>
+      <td>{{ book.B_author }}</td>  <!-- Correctly show author now -->
+      <td>
+  <form method="POST">
+    <input type="hidden" name="action" value="issue">
+    <input type="hidden" name="book_id" value="{{ book.B_id }}">
+    <select name="student_id" onchange="this.form.submit()">
+      {% if book.student_id %}
+        <option value="{{ book.student_id }}" selected>{{ book.student_name }}</option>
+      {% else %}
+        <option value="">-- Select Student --</option>
+      {% endif %}
 
-      row.innerHTML = `
-        <td>${id}</td>
-        <td>${title}</td>
-        <td>${author}</td>
-        <td contenteditable="true">—</td>
-        <td contenteditable="true" class="status available">Available</td>
-      `;
+      {% for student in students %}
+        <option value="{{ student.P_ID }}">{{ student.Name }}</option>
+      {% endfor %}
 
-      table.appendChild(row);
+      {% if book.student_id %}
+        <option value="">Unassign</option>
+      {% endif %}
+    </select>
+  </form>
+</td>
 
-      document.getElementById("add-book-id").value = "";
-      document.getElementById("add-title").value = "";
-      document.getElementById("add-author").value = "";
-    }
+      <td class="status {% if book.student_id %}issued{% else %}available{% endif %}">
+        {% if book.student_id %}Issued{% else %}Available{% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+</tbody>
+    </table>
+ <div class="back-link">
+      <a href="{{ url_for('admin_dashboard') }}">← Back to Dashboard</a>
+    </div>
+  </div>
 
-    function removeBook() {
-      const id = document.getElementById("remove-book-id").value;
-      if (!id) return;
 
-      const rows = document.querySelectorAll("#books-tbody tr");
-      rows.forEach(row => {
-        if (row.children[0].innerText === id) {
-          row.remove();
-        }
-      });
-
-      document.getElementById("remove-book-id").value = "";
-    }
   </script>
 </body>
 </html>

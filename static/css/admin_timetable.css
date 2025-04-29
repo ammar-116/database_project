@@ -1,0 +1,132 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #FFF4E9;
+  margin: 0;
+  padding: 20px;
+}
+
+.page-container {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #16E0BD;
+  padding-bottom: 10px;
+}
+
+.selection-form {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.selection-dropdown {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  min-width: 200px;
+}
+
+.timetable-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  background-color: #fefefe;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  border-left: 5px solid #FF7F50;
+  gap: 20px;
+}
+
+.break {
+  background-color: #f8f8f8;
+  justify-content: space-between;
+  border-left-color: #16E0BD;
+}
+
+.break-text {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #555;
+}
+
+.time {
+  min-width: 140px;
+  font-weight: bold;
+  color: #333;
+}
+
+.assigned-info {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.inline-form, .slot-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.slot-dropdown {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 0.95rem;
+  min-width: 160px;
+}
+
+.clear-button, .create-button {
+  background-color: #FF7F50;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.clear-button:hover, .create-button:hover {
+  background-color: #e46640;
+  transform: translateY(-2px);
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
+}

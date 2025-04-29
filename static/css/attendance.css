@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f6f6f6;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #FFF4E9;
   margin: 0;
   padding: 20px;
 }
@@ -9,67 +9,75 @@ body {
   max-width: 800px;
   margin: auto;
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #16E0BD;
+  padding-bottom: 10px;
 }
 
 .attendance-controls {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
 #searchInput {
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .filter-buttons {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
 }
 
 .filter-buttons button {
-  padding: 8px 14px;
+  padding: 10px 16px;
   border: none;
-  border-radius: 6px;
-  background-color: #0077cc;
+  border-radius: 8px;
+  background-color: #FF7F50;
   color: white;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s;
 }
 
 .filter-buttons button:hover {
-  background-color: #005fa3;
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
-/* Shared row layout */
 .attendance-row {
   display: flex;
   padding: 12px 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
   align-items: center;
 }
 
 .attendance-row.header {
-  background-color: #e0e0e0;
+  background-color: #f0f0f0;
   font-weight: bold;
-  border-bottom: 2px solid #bbb;
+  border-bottom: 2px solid #ccc;
+  color: #444;
 }
 
 .col {
   flex: 1;
+  color: #444;
 }
 
 .col-status {
@@ -78,5 +86,22 @@ h1 {
 }
 
 .attendance-row input[type="checkbox"] {
-  transform: scale(1.2);
+  transform: scale(1.3);
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
 }

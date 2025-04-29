@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #FFF4E9;
   margin: 0;
   padding: 20px;
 }
@@ -18,14 +18,17 @@ body {
 
 .teacher-info {
   grid-area: info;
-  background: #e0e0e0;
+  background: #FFFFFF;
   padding: 20px;
   border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
 }
 
 .teacher-info h2 {
-  border-bottom: 2px solid #4b0082;
+  border-bottom: 2px solid #16E0BD;
   padding-bottom: 10px;
+  color: #333;
 }
 
 .teacher-info ul {
@@ -35,43 +38,57 @@ body {
 
 .teacher-info li {
   margin: 8px 0;
+  color: #444;
 }
 
 .teacher-info .btn.timetable-btn {
   margin-top: 15px;
   padding: 10px 14px;
-  background-color: #4b0082;
+  background-color: #FF7F50;
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
+  font-weight: bold;
 }
 
 .teacher-info .btn.timetable-btn:hover {
-  background-color: #360060;
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
 .side-panel {
   grid-area: side;
-  background: #d6d6d6;
+  background: #ffffff;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #16E0BD;
 }
 
 .side-panel h3 {
   margin-top: 0;
+  color: #333;
 }
 
 .side-panel .btn {
   margin: 10px 0;
-  padding: 8px 12px;
-  background-color: #4b0082;
+  padding: 10px 16px;
+  background-color: #FF7F50;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.side-panel .btn:hover {
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
 .classes-section {
@@ -84,24 +101,51 @@ body {
 }
 
 .class-card {
-  background: #dedede;
+  background: #ffffff;
   border-radius: 20px;
   width: 200px;
   padding: 20px;
   text-align: center;
   transition: transform 0.2s;
+  border: 2px solid #FF7F50;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .class-card:hover {
   transform: scale(1.05);
+  border-color: #16E0BD;
 }
 
 .class-card .btn {
   margin-top: 10px;
   padding: 6px 10px;
-  background-color: #4b0082;
+  background-color: #FF7F50;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.class-card .btn:hover {
+  background-color: #e46640;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
 }

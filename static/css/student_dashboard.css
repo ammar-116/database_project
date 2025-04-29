@@ -1,98 +1,123 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #FFF4E9;
+  margin: 0;
+  padding: 20px;
 }
 
 .dashboard-container {
-    display: grid;
-    grid-template-areas:
-        "info side"
-        "grades grades";
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: auto;
+  display: grid;
+  grid-template-areas:
+    "info side"
+    "grades grades";
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .student-info {
-    grid-area: info;
-    background: #e0e0e0;
-    padding: 20px;
-    border-radius: 15px;
+  grid-area: info;
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
 }
 
 .student-info h2 {
-    border-bottom: 2px solid purple;
-    padding-bottom: 10px;
+  border-bottom: 2px solid #16E0BD;
+  padding-bottom: 10px;
+  color: #333;
 }
 
 .student-info ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .student-info li {
-    margin: 8px 0;
+  margin: 8px 0;
+  color: #444;
 }
 
 .side-panel {
-    grid-area: side;
-    background: #d6d6d6;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
+  grid-area: side;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #16E0BD;
 }
 
 .grades-grid {
-    grid-area: grades;
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding: 10px 0;
-    scroll-behavior: smooth;
-}
-
-.subject-box {
-    flex: 0 0 auto;
-    min-width: 200px;
-    background: #dedede;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s;
+  grid-area: grades;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
 }
 
 .grades-grid::-webkit-scrollbar {
-    height: 8px;
+  height: 8px;
 }
 
 .grades-grid::-webkit-scrollbar-thumb {
-    background-color: #aaa;
-    border-radius: 10px;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.subject-box {
+  flex: 0 0 auto;
+  min-width: 200px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+  border: 2px solid #FF7F50;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .subject-box:hover {
-    transform: scale(1.05);
-}
-
-.subject-box:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  border-color: #16E0BD;
 }
 
 .side-panel .btn.timetable-btn {
-    margin: 10px 0;
-    padding: 8px 12px;
-    background-color: #4b0082;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  margin: 10px 0;
+  padding: 10px 16px;
+  background-color: #FF7F50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .side-panel .btn.timetable-btn:hover {
-    background-color: #360060;
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
+}

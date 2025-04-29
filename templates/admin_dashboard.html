@@ -9,8 +9,7 @@
   <div class="dashboard-container">
 
     <div class="admin-info">
-      <h2>Admin Panel</h2>
-      <p><strong>Name:</strong> Admin</p>
+      <h2>Admin Dashboard</h2>
     </div>
 
     <div class="card teachers">
@@ -56,11 +55,14 @@
     <div class="card manage-timetables">
       <h4>Manage Timetables</h4>
       <p>Create or modify class timetables.</p>
-      <a href="#">
+      <a href="{{url_for('admin_timetable')}}">
         <button class="btn">Manage Timetables</button>
       </a>
     </div>
 
   </div>
+<div class="back-link">
+      <a href="{{ url_for('home') }}">← Logout</a>
+    </div>
 </body>
 </html>

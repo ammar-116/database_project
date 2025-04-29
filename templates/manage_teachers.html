@@ -11,7 +11,7 @@
 
     <div class="form-section">
       <h3>Add New Teacher</h3>
-      <form method="post" action="#">
+      <form method="post" action="{{ url_for('insert_teacher') }}">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -34,11 +34,13 @@
         </select>
 
         <div id="class-details" style="display: none;">
-          <label for="class_grade">Class Grade:</label>
-          <input type="number" id="class_grade" name="class_grade" required>
-
-          <label for="section">Section:</label>
-          <input type="text" id="section" name="section" maxlength="1" required>
+          <label for="class_id">Assign Class:</label>
+          <select id="class_id" name="class_id">
+            <option value="">-- Select Class --</option>
+            {% for c in classes %}
+              <option value="{{ c.Class_id }}">Grade {{ c.grade }} - Section {{ c.section }}</option>
+            {% endfor %}
+          </select>
         </div>
 
         <button type="submit" class="btn">Add Teacher</button>
@@ -47,7 +49,7 @@
 
     <div class="form-section">
       <h3>Delete Teacher</h3>
-      <form method="post" action="#">
+      <form method="post" action="{{ url_for('delete_teacher') }}">
         <label for="teacher_id">Teacher ID:</label>
         <input type="number" id="teacher_id" name="teacher_id" required>
 
@@ -61,13 +63,13 @@
   </div>
 
   <script>
-    // Show/hide class details based on whether the teacher is a class teacher
     document.getElementById('class_teacher').addEventListener('change', function() {
       const classDetails = document.getElementById('class-details');
       if (this.value === 'yes') {
         classDetails.style.display = 'block';
       } else {
         classDetails.style.display = 'none';
+        document.getElementById('class_id').value = ""; // Clear selection
       }
     });
   </script>

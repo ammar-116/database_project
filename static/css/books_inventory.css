@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #FFF4E9;
   margin: 0;
   padding: 30px;
 }
@@ -8,10 +8,11 @@ body {
 .inventory-container {
   max-width: 1000px;
   margin: auto;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
 }
 
 .inventory-container h2 {
@@ -19,6 +20,8 @@ body {
   margin-bottom: 30px;
   font-size: 28px;
   color: #333;
+  border-bottom: 2px solid #16E0BD;
+  padding-bottom: 10px;
 }
 
 .controls {
@@ -34,6 +37,7 @@ body {
   border: 1px solid #ccc;
   width: 100%;
   font-size: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .form-group {
@@ -47,6 +51,9 @@ body {
   border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 15px;
+  flex: 1;
+  min-width: 160px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .btn {
@@ -56,46 +63,51 @@ body {
   cursor: pointer;
   font-weight: bold;
   font-size: 15px;
-  transition: background 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s;
 }
 
 .btn.add {
-  background-color: #4caf50;
+  background-color: #16E0BD;
   color: white;
 }
 
 .btn.add:hover {
-  background-color: #45a047;
+  background-color: #14b5a0;
+  transform: translateY(-2px);
 }
 
 .btn.delete {
-  background-color: #e53935;
+  background-color: #f44336;
   color: white;
 }
 
 .btn.delete:hover {
-  background-color: #c62828;
+  background-color: #d32f2f;
+  transform: translateY(-2px);
 }
 
 .books-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 16px;
+  margin-top: 20px;
 }
 
-.books-table th, .books-table td {
+.books-table th,
+.books-table td {
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .books-table th {
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
   color: #333;
+  font-weight: bold;
 }
 
 .books-table td[contenteditable="true"] {
-  background-color: #fef9e7;
+  background-color: #fff6e0;
   cursor: text;
 }
 
@@ -113,4 +125,21 @@ body {
   .form-group {
     flex-direction: column;
   }
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
 }

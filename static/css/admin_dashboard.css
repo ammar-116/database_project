@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #FFF4E9;
   margin: 0;
   padding: 20px;
 }
@@ -19,21 +19,28 @@ body {
 
 .admin-info {
   grid-area: info;
-  background: #e0e0e0;
+  background: #ffffff;
   padding: 20px;
   border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid #FF7F50;
+  color: #333;
 }
 
 .card {
-  background: #dedede;
+  background: #ffffff;
   border-radius: 20px;
   padding: 20px;
   text-align: center;
   transition: transform 0.2s;
+  border: 2px solid #FF7F50;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  color: #333;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  border-color: #16E0BD;
 }
 
 .teachers { grid-area: teachers; }
@@ -45,20 +52,39 @@ body {
 
 .card .btn {
   margin-top: 10px;
-  padding: 8px 12px;
-  background-color: #4b0082;
+  padding: 10px 16px;
+  background-color: #FF7F50;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .card .btn:hover {
-  background-color: #360060;
+  background-color: #e46640;
+  transform: translateY(-2px);
 }
 
 a {
   text-decoration: none;
 }
 
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  color: #e0553a;
+}
