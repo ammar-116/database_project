@@ -1,3 +1,4 @@
+/* Overall Page Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #FFF4E9;
@@ -7,21 +8,35 @@ body {
   height: 100vh;
   margin: 0;
 }
-.portal-title {
+
+/* Title + Logo Container */
+.title-container {
   position: absolute;
   top: 5%;
-  text-align: center;
-  width: 100%;
-  font-size: 2.5rem;
-  color: #16E0BD;
-  font-weight: 700;
-  text-shadow:
-    -2px -2px 0 #FF7F50,
-     2px -2px 0 #FF7F50,
-    -2px  2px 0 #FF7F50,
-     2px  2px 0 #FF7F50;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* spacing between logo and title */
+   margin-left: -50px;
 }
 
+/* Portal Title Text */
+.portal-title {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #FF7F50;
+  font-weight: 1000;
+
+}
+
+/* Make logo bigger and align it nicely */
+.portal-logo {
+  height: 150px; /* increase as needed */
+  width: auto;
+}
+
+/* Login Container Styling */
 .login-container {
   background-color: #ffffff;
   padding: 2rem;
@@ -32,6 +47,7 @@ body {
   border-top: 8px solid #16E0BD;
 }
 
+/* Login Header */
 .login-container h2 {
   margin-bottom: 1.5rem;
   color: #FF7F50;
@@ -39,6 +55,7 @@ body {
   font-weight: bold;
 }
 
+/* Input Fields */
 input[type="text"],
 input[type="password"] {
   display: block;
@@ -57,6 +74,7 @@ input[type="password"]:focus {
   outline: none;
 }
 
+/* Submit Button */
 button {
   margin-top: 1.5rem;
   padding: 0.75rem;
